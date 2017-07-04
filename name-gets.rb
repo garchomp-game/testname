@@ -1,2 +1,3 @@
-names=gets.chomp
-puts "氏名は、#{namesd}です。"
+names="garchomp"
+puts "氏名は、#{names}です"
+puts "氏名の文字列は、#{names.length}です。"
