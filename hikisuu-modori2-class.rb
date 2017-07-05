@@ -6,10 +6,15 @@ def modori1(n)
 end
 
 for i in 0..2 do
-	x=modori1(i)
-	if x
-		puts out= "#{x[1]} #{x[2]}"
+	for j in 1..2 do
+		x=modori1(i)[j]
+		if x.nil?
+			next
+		else
+			print "#{x} "
+		end
 	end
+	puts
 end
 
 
