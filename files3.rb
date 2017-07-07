@@ -1,4 +1,8 @@
 require 'logger'
+require 'fileutils'
+if File.exist?("memo.log")
+	FileUtils.touch("memo.log")
+end
 log=Logger.new('memo.log')	
 
 File.open("memo.log","w") do
