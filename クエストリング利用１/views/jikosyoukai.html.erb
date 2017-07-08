@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tekitou</title>
+  </head>
+  <body>
+    <body>
+      <p><%
+            @params
+            x=@params["total"].to_i*@params["count"].to_i
+            if x>=3000
+              x=x*1.04
+            elsif x>=5000
+              x=x*1.05
+            end
+            case @params["type"]
+            when "1"
+              @params["type"]="雑貨"
+            when "2"
+              @params["type"]="生鮮食品"
+            when "3"
+              @params["type"]="その他"
+            end
+          %>
+      </p>
+
+      <p>総額は：<%= @params["total"] %></p>
+      <p>個数は：<%= @params["count"] %></p>
+      <p>種別は：<%= @params["type"] %></p>
+      <p>合計は：<%= x %></p>
+
+    </body>
+  </body>
+</html>
