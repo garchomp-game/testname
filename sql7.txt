@@ -1,0 +1,1 @@
+update profiles set name='鈴木　茂'
