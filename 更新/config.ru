@@ -11,6 +11,8 @@ require './controllers/sql6_2.rb'
 require './controllers/rentai.rb'
 require './controllers/sql6_3.rb'
 require './controllers/sql6_4.rb'
+require './controllers/shop_sql.rb'
+require './controllers/shop_append.rb'
 use Rack::Reloader,0
 Encoding.default_external='UTF-8'
 use Rack::Session::Cookie,
@@ -48,4 +50,13 @@ map "/sql6_3" do
 end
 map "/sql6_4" do
 	run Sql6_4Controller.new
+end
+map "/shop_login" do
+	run LoginController.new
+end
+map "/shop_sql" do
+	run Shop_sqlController.new
+end
+map "/append_to" do
+	run ShopAppendController.new
 end

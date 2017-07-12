@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Hello</title>
+  <style>
+  *{
+  padding:0;
+  margin:0;
+}
+header{
+  text-align:center;
+  height:200px;
+  line-height:200px;
+  background-color:aqua;
+}
+.login-form{
+  margin-top:50px;
+  text-align:center;
+}
+.submit{
+  margin-top:15px;
+  font-size:24px;
+}
+.text{
+  font-size:24px;
+  margin-bottom:15px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ログインフォーム</h1>
+  </header>
+  <div class="login-form">
+    <form action="/sql_login.rb">
+      <p><input class="text" type="text" name="name"></p>
+      <p><input class="text" type="text" name="pass"></p>
+      <p><input class="submit" type="submit"></p>
+    </form>
+  </div>
+</body>
+</html>
