@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>Hello</title>
+</head>
+<body>
+	<%
+
+	%>
+<%= "Hello,Rack" %>
+<form action="/session_instance" method="get">
+	<p id="name">名前<input type="text" name="name" value=""></p>
+	<p>性別：
+		<input type="radio" name="sex" value="male">男
+		<input type="radio" name="sex" value="female">女
+	</p>
+	<p>趣味：<br>
+		 <textarea name="syumi" rows="8" cols="80"></textarea></p>
+	<input type="submit" name="送信" value="送信">
+</form>
+<p><a href="/session_get">前の結果の確認</a></p>
+<p><a href="/ifelse">sql練習ページへ</a></p>
+<p><a href="/sql62">sqlテスト、行の挿入へ</a></p>
+<p><a href="/sql6_3">sql行の削除へ</a></p>
+<p><a href="/sql6_4">sql行の追加へ</a></p>
+<p><a href="/sql6_5">sql複合検索へ</a></p>
+
+
+<!-- <a href="/test">テストページへ（クエストリング２）</a>
+<p><a href="/session_instance">セッションの動作テスト	</a></p>
+<p><a href="/session_get">セッションを直接見る</a></p> -->
+</body>
+</html>

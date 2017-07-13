@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>Hello</title>
+</head>
+<body>
+	<h1>レコードの複合検索</h1>
+  <p>
+    <p><%
+    @all.each do|i|
+      %>
+    <p style="line-height:1em;"><%=i%></p>
+    <%end
+     %></p>
+  </p>
+<form action="/sql6_5" method="post">
+  名前　：<input type="text" name="text1" value="">
+  年齢　：<input type="text" name="text2" value="">
+	誕生日：<input type="text" name="text3" value="">
+	<input type="submit" value="検索">
+</form>
+<%=@sarchs%>
+</body>
+</html>
