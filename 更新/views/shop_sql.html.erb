@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Hello</title>
+    <style>
+      *{
+        padding:0;
+        margin:0;
+      }
+
+      ul{
+        padding:0;
+        margin-top:50px;
+      }
+      li{
+        list-style:none;
+        padding:0;
+        margin:0;
+      }
+      #logout{
+        color:black;
+        text-decoration:none;
+        font-weight:bold;
+        display:inline-block;
+        position:absolute;
+        top:20px;
+        right:10px;
+        background:linear-gradient(gray,white,gray);
+      }
+
+      header{
+        margin-top:50px;
+        text-align:center;
+        height:200px;
+        line-height:200px;
+        background-color:aqua;
+      }
+      .list-item{
+        background-color:orange;
+        margin:10px 30px;
+        padding:50px;
+      }
+      .list-item p{
+        margin:15px 0;
+        font-size:24px;
+      }
+      footer{
+        padding:50px;
+        text-align:center;
+        background-color:rgba(0,0,0,0.8);
+        position:fixed;
+        width:100%;
+        bottom:0;
+        color:gray;
+        font-weight:bold;
+        letter-spacing:2em;
+      }
+      .append_list{
+        position:absolute;
+        display:inline-block;
+        top:20px;
+        left:10px;
+      }
+      .append_list a{
+        color:black;
+        text-decoration:none;
+        font-weight:bold;
+        background:linear-gradient(gray,white,gray);
+      }
+      .return{
+        height:300px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="append_list"><a href="/shop_append">商品を追加する</a></p>
+    <a id="logout" href="sql_login">ログアウトする</a>
+    <header>
+      <h1>商品一覧</h1>
+    </header>
+
+    <div class="list-form">
+      <div class="container">
+        <ul>
+          <!-- loop -->
+          <%for i in 0..((@count[0].values[0])-1) do%>
+          <li class="list-item">
+            <h1 style="text-align:center;">商品名:<%=@views[i]["name"]%></h1>
+            <p>種別:　　　　<%=@views[i]["type"]%></p>
+            <p>重さ:　　　　<%=@views[i]["weight"]%></p>
+            <p>値段:　　　　<%=@views[i]["price"]%></p>
+          </li>
+          <%end%>
+          <!-- loop-end -->
+        </ul>
+      </div>
+    </div>
+    <div class="return">
+    </div>
+
+    <footer>
+      <p>ショッピングテスト</p>
+    </footer>
+
+  </body>
+</html>

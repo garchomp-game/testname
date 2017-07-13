@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%
+    %>
+    <form action="/sql6" method="post">
+      <p>調べたい名前を入力してください</p>
+      <input type="text" name="text" value="">
+      <input class="submit" type="submit" value="送信">
+    </form>
+    <p id="testid"><%
+    if @text==""
+        nil
+    else
+     @text.each do|i|%>
+       <p><%= i %></p>
+     <%end
+    end%>
+      </p>
+
+      <p><a href="/sql62">sqlテスト、行の挿入へ</a></p>
+
+    <p><a href="/">戻る</a></p>
+
+  </body>
+</html>

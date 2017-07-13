@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Hello</title>
+    <style>
+      *{
+        padding:0;
+        margin:0;
+      }
+      ul{
+        padding:0;
+        margin-top:50px;
+      }
+      li{
+        list-style:none;
+        padding:0;
+        margin:0;
+      }
+      header{
+        text-align:center;
+        height:200px;
+        line-height:200px;
+        background-color:aqua;
+      }
+      .forms p{
+        margin:10px;
+      }
+
+      footer{
+        padding:50px;
+        text-align:center;
+        background-color:rgba(0,0,0,0.8);
+        position:fixed;
+        width:100%;
+        bottom:0;
+        color:gray;
+        font-weight:bold;
+        letter-spacing:2em;
+      }
+      .append-list{
+        background-color:rgba(115,0,255,0.3);
+        padding:80px;
+        text-align:center;
+        height:500px;
+      }
+      .append_a{
+        position:absolute;
+        display:inline-block;
+        top:20px;
+        left:10px;
+      }
+      #logout{
+        color:black;
+        text-decoration:none;
+        font-weight:bold;
+        display:inline-block;
+        position:absolute;
+        top:20px;
+        right:10px;
+        background:linear-gradient(gray,white,gray);
+      }
+      .append_a a{
+        color:black;
+        text-decoration:none;
+        font-weight:bold;
+        background:linear-gradient(gray,white,gray);
+      }
+    </style>
+  </head>
+  <body>
+    <p class="append_a"><a href="/shop_sql">商品一覧に戻る</a></p>
+    <a id="logout" href="/sql_login">ログアウトする</a>
+    <header>
+      <h1>商品の追加</h1>
+    </header>
+    <div class="append-list">
+      <h2>追加する商品</h2>
+      <form class="forms" action="/shop_append">
+        <p>型番号：<input type="text" name="text1"></p>
+        <p>商品名：<input type="text" name="text2"></p>
+        <p>種別　：<input type="text" name="text3"></p>
+        <p>重さ　：<input type="text" name="text4"></p>
+        <p>値段　：<input type="text" name="text5"></p>
+        <input type="submit" value="追加する！">
+      </form>
+    </div>
+
+    <footer>
+      <p>ショッピングテスト</p>
+    </footer>
+
+  </body>
+</html>
