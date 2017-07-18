@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS登録確認画面</title>
+    </head>
+    <body>
+    <%
+    names=["name","year","month","day","tell","comment"]
+    @errors=[]
+    for i in 0..5 do
+      x=names[i]
+      if @params[x].empty?
+        @errors.push(x)
+      end
+    end%>
+    <%
+    if @errors.size>=1%>
+    <div style="
+          text-align:center;
+          font-weight:bold;
+          color:red;
+          ">
+<h1>未入力の項目があります</h1>
+<%x=@errors.size-1
+for i in 0..x do%>
+<p><%=@errors[i]%>が未入力のままです</p>
+  <%end%>
+  <form>
+    <input type="button" value="登録画面に戻る" onClick="history.go(-1)">
+  </form>
+</div>
+
+    <%else
+    %>
+    <%types={"1" => "エンジニア","2" => "営業","3" => "その他"}
+    x=types[@params["type"].to_s]%>
+    <% if @filled_flag %>
+        <h1>登録確認</h1>
+        名前:<%= @params["name"]%><br>
+        生年月日:<%= @params["year"]%>年<%= @params["month"]%>月<%= @params["day"]%>日<br>
+        種別:<%=x%><br>
+        電話番号:<%= @params["tell"]%><br>
+        自己紹介:<%= @params["comment"]%><br>
+        上記の内容で登録します。よろしいですか？
+        <form action="/insert_result" method="POST">
+            <input type="hidden" name="secrets"  value="<%= @secrets %>">
+            <input type="submit" name="yes" value="はい">
+        </form>
+    <% else %>
+        <h1>入力が不完全です</h1>
+    <% end %>
+    <form>
+      <input type="button" value="登録画面に戻る" onClick="history.go(-1)">
+    </form>
+        <p><a href="/">トップに戻る</a></p>
+        <%end%>
+    </body>
+</html>

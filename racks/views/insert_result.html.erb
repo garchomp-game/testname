@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS登録結果画面</title>
+    </head>
+    <body>
+      <%types={"1" => "エンジニア","2" => "営業","3" => "その他"}
+      x=types[@params["type"].to_s]%>
+        <h1>登録結果</h1><br>
+        名前:<%= @params["name"]%><br>
+        生年月日:<%= @params["year"]%>年<%= @params["month"]%>月<%= @params["day"]%>日<br>
+        種別:<%= x%><br>
+        電話番号:<%= @params["tell"]%><br>
+        自己紹介:<%= @params["comment"]%><br>
+        <input type="hidden" name="secret"  value="<%= @secret %>">
+
+        以上の内容で登録しました。<br>
+        <p><a href="/">トップに戻る</a></p>
+    </body>
+</html>
