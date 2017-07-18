@@ -6,6 +6,7 @@ class InsertResultController
   def call(env)
 
     request = Rack::Request.new(env)
+<<<<<<< HEAD
     
     @params=request.params()
     if @params["secrets"]==request.session["secrets"]
@@ -20,6 +21,17 @@ class InsertResultController
 
       Rack::Response.new(render("error.html.erb"))
     end
+=======
+    @secret = Digest::SHA256.hexdigest(rand.to_s)
+    request.session["secret"] = @secret
+    @params = request.session["insert_params"]
+
+    # DBに入力パラメータをinsert
+    user_t = UserT.new(@params)
+    user_t.insert
+
+    Rack::Response.new(render("insert_result.html.erb"))
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
   end
 
   def render(template)

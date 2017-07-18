@@ -9,6 +9,7 @@ class InsertConfirmController
     @params = request.params()
 
     # insertページからの遷移でないときはエラーページに飛ばす。正しいときはinsert_confirmへ
+<<<<<<< HEAD
       if @params["secret"] == request.session["secret"]
         # 入力パラメータをセッションに格納
         request.session["insert_params"] = @params
@@ -29,6 +30,25 @@ class InsertConfirmController
         Rack::Response.new(render("error.html.erb"))
       end
 
+=======
+    if @params["secret"] == request.session["secret"]
+      # 入力パラメータをセッションに格納
+      request.session["insert_params"] = @params
+
+      # 入力パラメータが不完全かどうかを判別し、状態だけを返却
+      if @params["name"].empty?
+        @filled_flag = false
+      else
+        @filled_flag = true
+      end
+
+      Rack::Response.new(render("insert_confirm.html.erb"))
+    else
+      @error = "不正なアクセスルートです"
+
+      Rack::Response.new(render("error.html.erb"))
+    end
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
   end
 
   def render(template)

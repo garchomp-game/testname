@@ -5,6 +5,7 @@
         <title>RUMS登録結果画面</title>
     </head>
     <body>
+<<<<<<< HEAD
       <%types={"1" => "エンジニア","2" => "営業","3" => "その他"}
       x=types[@params["type"].to_s]%>
         <h1>登録結果</h1><br>
@@ -15,6 +16,16 @@
         自己紹介:<%= @params["comment"]%><br>
         <input type="hidden" name="secret"  value="<%= @secret %>">
 
+=======
+        <h1>登録結果</h1><br>
+        名前:<%= @params["name"]%><br>
+        生年月日:<%= @params["year"]%>-<%= @params["month"]%>-<%= @params["day"]%><br>
+        種別:<%= @params["type"]%><br>
+        電話番号:<%= @params["tell"]%><br>
+        自己紹介:<%= @params["comment"]%><br>
+        <input type="hidden" name="secret"  value="<%= @secret %>">
+        
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
         以上の内容で登録しました。<br>
         <p><a href="/">トップに戻る</a></p>
     </body>

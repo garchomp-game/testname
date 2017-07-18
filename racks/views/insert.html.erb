@@ -3,6 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>RUMS登録画面</title>
+<<<<<<< HEAD
         <script type="text/javascript">
 
         </script>
@@ -11,6 +12,10 @@
     <%=
     @errors
     %>
+=======
+    </head>
+    <body>
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
     <form action="/insert_confirm" method="POST">
         名前:
         <input type="text" name="name" value="">
@@ -25,14 +30,24 @@
         </select>年
         <select name="month">
             <option value="">--</option>
+<<<<<<< HEAD
             <% 12.times do | i | %>
             <option value="<%=i+1%>"><%=i+1%></option>
+=======
+            <% 13.times do | i | %>
+            <option value="<%=i%>"><%=i%></option>
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
             <% end %>
         </select>月
         <select name="day">
             <option value="">--</option>
+<<<<<<< HEAD
             <% 31.times do | i | %>
             <option value="<%=i+1%>"><%=i+1%></option>
+=======
+            <% 32.times do | i | %>
+            <option value="<%=i%>"><%=i%></option>
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
             <% end %>
         </select>日
         <br><br>
@@ -43,9 +58,12 @@
         <input type="radio" name="type" value="2">営業<br>
         <input type="radio" name="type" value="3">その他<br>
         <br>
+<<<<<<< HEAD
         <!--
 
         -->
+=======
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
 
         電話番号:
         <input type="text" name="tell" value="">

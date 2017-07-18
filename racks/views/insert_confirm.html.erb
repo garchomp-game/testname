@@ -5,6 +5,7 @@
         <title>RUMS登録確認画面</title>
     </head>
     <body>
+<<<<<<< HEAD
     <%
     names=["name","year","month","day","tell","comment"]
     @errors=[]
@@ -40,20 +41,37 @@ for i in 0..x do%>
         名前:<%= @params["name"]%><br>
         生年月日:<%= @params["year"]%>年<%= @params["month"]%>月<%= @params["day"]%>日<br>
         種別:<%=x%><br>
+=======
+    <% if @filled_flag %>
+        <h1>登録確認</h1>
+        名前:<%= @params["name"]%><br>
+        生年月日:<%= @params["year"]%>-<%= @params["month"]%>-<%= @params["day"]%><br>
+        種別:<%= @params["type"]%><br>
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
         電話番号:<%= @params["tell"]%><br>
         自己紹介:<%= @params["comment"]%><br>
         上記の内容で登録します。よろしいですか？
         <form action="/insert_result" method="POST">
+<<<<<<< HEAD
             <input type="hidden" name="secrets"  value="<%= @secrets %>">
+=======
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
             <input type="submit" name="yes" value="はい">
         </form>
     <% else %>
         <h1>入力が不完全です</h1>
     <% end %>
+<<<<<<< HEAD
     <form>
       <input type="button" value="登録画面に戻る" onClick="history.go(-1)">
     </form>
         <p><a href="/">トップに戻る</a></p>
         <%end%>
+=======
+        <form action="/insert" method="POST">
+            <input type="submit" name="no" value="登録画面に戻る">
+        </form>
+        <p><a href="/">トップに戻る</a></p>
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
     </body>
 </html>

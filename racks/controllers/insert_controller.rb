@@ -4,10 +4,18 @@ require 'rack'
 class InsertController
   def call(env)
     request = Rack::Request.new(env)
+<<<<<<< HEAD
     @params=request.params()
     #暗号を作成し、セッションに。この暗号をパラメータとして持ったPOSTじゃないと処理を受け付けないように
     @secret = Digest::SHA256.hexdigest(rand.to_s)
     request.session["secret"] = @secret
+=======
+
+    #暗号を作成し、セッションに。この暗号をパラメータとして持ったPOSTじゃないと処理を受け付けないように
+    @secret = Digest::SHA256.hexdigest(rand.to_s)
+    request.session["secret"] = @secret
+
+>>>>>>> 24630e851313d0ceae78bf3070bb5ed05e343dec
     Rack::Response.new(render("insert.html.erb"))
   end
 
