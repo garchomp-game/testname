@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS検索結果画面</title>
+    </head>
+    <body>
+      <%@result_users%>
+        <h1>検索結果</h1>
+        <table border=1>
+            <tr>
+                <th>名前</th>
+                <th>生年</th>
+                <th>種別</th>
+                <th>登録日時</th>
+            </tr>
+
+
+              <% @result_users.each do |result_user|%>
+              <tr>
+                <td><a href="result_detail?userID=<%= result_user["userID"]%>"><%= result_user["name"]%></a></td>
+                <%
+                @birh=result_user["birthday"].to_s
+                year=@birh.slice(0,4)
+                month=@birh.slice(5,2)
+                day=@birh.slice(8,2)
+                %>
+                <td><%= year%>年<%= month%>月<%= day%>日</td>
+                <%case result_user["type"]
+                when 1
+                  result_user["type"] = "エンジニア"
+                when 2
+                  result_user["type"] = "営業"
+                when 3
+                  result_user["type"] = "その他"
+                end%>
+                <td><%= result_user["type"]%></td>
+                <%@time=result_user["newdate"].to_s
+                years=@time.slice(0,4)
+                months=@time.slice(5,2)
+                days=@time.slice(8,2)
+                hour=@time.slice(11,2)
+                min=@time.slice(14,2)
+                sec=@time.slice(17,2)%>
+              <td><%= years%>年<%= months%>月<%= days%>日<%= hour%>時<%= min%>分<%= sec%>秒</td>
+              </tr>
+              <% end
+               %>
+
+        </table>
+        <p><a href="/">トップに戻る</a></p>
+        <input type="button" onClick="history.back(); return false;" value="戻る">
+    </body>
+</html>

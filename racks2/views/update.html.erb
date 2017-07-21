@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMS更新画面</title>
+    </head>
+    <body>
+      <%
+      @all=[]%>
+      <%@test.each do|i|%>
+        <%@all=i%>
+      <%end%>
+      <%@x=@all["birthday"].to_s%>
+      <%@x%>
+      <!-- <%=@all%> -->
+    <form action="/update_confirm" method="POST">
+        <input type="hidden" name="id" value="<%=@id["userID"]%>">
+        名前:
+        <input type="text" name="name" value="<%=@all["name"]%>">
+        <br><br>
+
+        生年月日:　
+        <select name="year">
+            <option value="">----</option>
+            <% for i in 1960..2010 %>
+              <option value="<%=i%>"
+                <%if @x[0,4].to_i== i%>
+                  selected
+                <%end%>
+
+                >
+                <%=i%> </option>
+            <% end %>
+        </select>年
+        <select name="month">
+            <option value="">--</option>
+            <% for i in 1..12 %>
+              <option value="<%=i%>"
+                <%if @x[5,2].to_i== i%>
+                  selected
+                <%end%>
+                > <%=i%> </option>
+            <% end %>
+        </select>月
+        <select name="day">
+            <option value="">--</option>
+            <% for i in 1..31 %>
+              <option value="<%=i%>"
+                <%if @x[8,2].to_i== i%>
+                  selected
+                <%end%>
+                > <%=i%> </option>
+            <% end %>
+        </select>日
+        <br><br>
+
+        種別:
+        <br>
+        <input type="radio" name="type" value="1"
+        <% if @all["type"]== 1 %>
+        checked
+        <% end %>
+        >エンジニア<br>
+        <input type="radio" name="type" value="2"
+        <% if @all["type"]== 2 %>
+        checked
+        <% end %>
+        >営業<br>
+        <input type="radio" name="type" value="3"
+        <% if @all["type"]== 3 %>
+        checked
+        <% end %>
+        >その他<br>
+        <br>
+
+        電話番号:
+        <input type="text" name="tell" value="<%=@all["name"]%>">
+        <br><br>
+
+        自己紹介文
+        <br>
+        <textarea name="comment" rows=10 cols=50 style="resize:none"
+         wrap="hard"><%=@all["comment"]%></textarea><br><br>
+
+        <input type="hidden" name="secret"  value="<%= @secret %>">
+        <input type="submit" name="btnSubmit" value="確認画面へ">
+    </form>
+    <input type="button" onClick="history.back(); return false;" value="戻る">
+        <br>
+        <p><a href="/">トップに戻る</a></p>
+    </body>
+</html>

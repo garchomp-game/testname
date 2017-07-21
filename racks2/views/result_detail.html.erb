@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>RUMSユーザー情報詳細画面</title>
+    </head>
+    <body>
+      <%    case @result_user["type"]
+          when 1
+            @x= "エンジニア"
+          when 2
+            @x = "営業"
+          when 3
+            @x = "その他"
+          end%>
+        <h1>詳細情報</h1>
+
+        名前:<%= @result_user["name"]%><br>
+        <%
+        @birh=@result_user["birthday"].to_s
+        @year=@birh.slice(0,4)
+        @month=@birh.slice(5,2)
+        @day=@birh.slice(8,2)
+        %>
+        生年月日:<%= @year%>年<%= @month%>月<%= @day%><br>
+        種別:<%= @x%><br>
+        電話番号:<%= @result_user["tell"]%><br>
+        自己紹介:<%= @result_user["comment"]%><br>
+        <%
+        @birh=@result_user["newdate"].to_s
+        year=@birh.slice(0,4)
+        month=@birh.slice(5,2)
+        day=@birh.slice(8,2)
+        %>
+        登録日時:<%= year%>年<%= month%>月<%= day%>日<br>
+        <form action="/update" method="post">
+        <input type="hidden" name="userID" value="<%=@result_user["userID"]%>" style="width:100px">
+        <input type="submit" name="update" value="変更"style="width:100px">
+        </form>
+        <form action="/delete" method="POST">
+        <input type="submit" name="delete" value="削除"style="width:100px">
+        <p></p>
+        <input type="button" onClick="history.back(); return false;" value="もどる">
+        </form>
+    </body>
+</html>
