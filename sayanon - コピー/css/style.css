@@ -1,0 +1,147 @@
+@charset "utf-8";
+body {
+	background-image:url(../images/background.png);
+}
+
+
+/*****
+a img:hover {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+******/
+
+
+#slider1 img {
+	margin:0 auto;
+	padding:0;
+	display:block;
+}
+
+.bx-wrapper .bx-viewport {
+	max-width:70%;
+	margin-left:200px;
+}
+
+h1 {
+	margin-left:170px;
+	margin-top:30px;
+}
+
+nav ul {
+	margin-top:25px;
+	margin-bottom:25px;
+	display:table;
+	width:100%;
+	text-align: center;
+}
+
+nav li{
+	margin-bottom: 20px;
+	border-right: 3px solid #000;
+	display:table-cell;
+	vertical-align: middle;
+}
+nav ul li:last-child {
+  border-right: 0;
+}
+
+
+
+/****
+#img1 img {
+	position:relative;
+	left:120px;
+}
+***/
+
+#tyranno img {
+	padding:60px;
+	margin-left:190px;
+	margin-top:-40px;
+}
+#tyranno p {
+	margin-left: 250px;
+	margin-top: -40px;
+}
+
+#toricera img {
+		padding:60px;
+	margin-left:190px;
+	margin-top:-40px;
+}
+
+#toricera p {
+	margin-left: 250px;
+	margin-top: -40px;
+}
+
+#side1  {
+	float:right;
+	margin-top:-590px;
+	margin-right:450px;
+}
+
+#side2 {
+	float:right;
+	margin-top:-590px;
+	margin-right:220px;
+}
+
+#side_banner p {
+	font-size:24px;
+	float:right;
+	margin-top:-630px;
+	margin-right:400px;
+}
+
+#omakedino img {
+	float:right;
+	margin-top:-350px;
+	margin-right:190px;
+}
+
+footer {
+	background-color: #AA0205;
+	margin-top:60px;
+	padding:40px;
+}
+
+footer ul {
+	margin-left:320px;
+	margin-top:-20px;
+}
+
+
+footer ul li {
+	float: left;
+}
+
+#footerlogo {
+	margin-top: 30px;
+	margin-left: 340px;
+}
+
+#dinop {
+	margin-top: 50px;
+	margin-left: 560px;
+	margin-bottom: -20px;
+	color:#fff;
+	font-family : YuGothic, '游ゴシック', sans-serif;
+}
+
+address {
+	color:#fff;
+	font-family : YuGothic, '游ゴシック', sans-serif;
+	float:right;
+	margin-right:250px;
+	margin-top:50px;
+}
+
+
+small {
+	font-size:24px;
+	margin-left: 470px;
+	padding:20px;
+	position:absolute;
+}
