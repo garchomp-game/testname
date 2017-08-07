@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EC_site</title>
+    <link rel="stylesheet" href="../ec_style" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ec_style.css">
+    <style media="screen">
+
+    </style>
+  </head>
+  <body>
+    <%if @checks==1%>
+    <header>
+      <div class="container">
+        <h1>ログインフォーム</h1>
+      </div>
+    </header>
+    <div class="login-form">
+      <div class="container">
+        <h1>ログイン情報</h1>
+        <form action="/login_check" method="post">
+          <p><span>メールアドレス</span>：<input type="text" name="id" value=""></p>
+          <p><span>パスワード</span>：<input type="password" name="pass" value=""></p>
+          <button type="submit" class="submit">ログイン</button>
+        </form>
+        <p style="color:red;"><%=@error%></p>
+        <a href="/registration" class="link_button" id="adds">会員登録画面へ</a>
+      </div>
+    </div>
+    <footer>
+      <h1>EC_site</h1>
+      <small>	&#x1F12B;garchomp</small>
+    </footer>
+    <%elsif @checks==2%>
+    <script type="text/javascript">
+      window.onload=function(){
+        window.location.href = '<%=@backs%>';
+      }
+    </script>
+    <%else%>
+    <header>
+      <div class="container">
+
+      </div>
+    </header>
+    <div class=" login-form">
+      <div class="container">
+        <h1>ログアウトしました</h1>
+        <a href="/" class="link_button" id="adds">戻る</a>
+      </div>
+    </div>
+    <footer>
+      <h1>EC_site</h1>
+      <small>	&#x1F12B;garchomp</small>
+    </footer>
+    <%end%>
+  </body>
+</html>

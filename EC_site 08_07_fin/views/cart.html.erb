@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EC_site</title>
+    <link rel="stylesheet" href="../ec_style" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ec_style.css">
+
+
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ECサイトタイトル</h1>
+        <div class="login">
+          <%if @login_check.nil?%>
+          <!--  ここに条件分岐を入れて、ログイン、ログアウトの状態を振り分ける。 -->
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="on_login">
+            <input type="submit" value="ログインする">
+          </form>
+
+            <%else%>
+          <!-- ここまで -->
+
+          <p id="welcome_user"><a href="/mydata"><%=@login_check["name"]%></a>さんようこそ！</p>
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="off_login">
+            <input type="submit" value="ログアウト">
+          </form>
+          <a class="link_button" href="/cart"><i class="fa fa-cart-arrow-down" id="fa-cart" aria-hidden="true"></i> カート</a>
+            <%end%>
+            <a href="/" class="link_button">トップに戻る</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <h1 style="margin-top:30px;">カート一覧</h1>
+      <div class="cart-item">
+        <%@count=1%>
+        <table border="0" cellspacing="0" cellpadding="0" class="cart-table">
+          <tr>
+            <th>No</th>
+            <th>商品名</th>
+            <th></th>
+          </tr>
+          <tr>
+          <%@total=0%>
+            <%@test_xml.each do|i|%>
+              <td><img src="<%=i[2]%>" alt=""></td>
+              <td><a href="/item?kw=<%=@show[@count-1]%>"><%=i[0]%></a><br>
+              価格：<%=i[1]%></td>
+              <%@total+=i[1].to_i%>
+              <td><a href="/delete?kw=<%=@show[@count-1]%>" class="link_button adds" style="width:100px;text-align:center; ">削除する</a></td>
+          </tr>
+          <%@count=@count+1%>
+            <%end%>
+        </table>
+        <p>合計金額：<%=@total%></p>
+        <a href="/buy_confirm?kw=<%=@total%>" class="link_button adds">購入する</a>
+      </div>
+      <div class="clear"> </div>
+    </div>
+    <footer>
+      <h1>EC_site</h1>
+      <small>	&#x1F12B;garchomp</small>
+    </footer>
+  </body>
+</html>

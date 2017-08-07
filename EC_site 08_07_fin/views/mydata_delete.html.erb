@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EC_site</title>
+    <link rel="stylesheet" href="../ec_style" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/ec_style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>ECサイトタイトル</h1>
+        <div class="login">
+          <%if @login_check.nil?%>
+          <!--  ここに条件分岐を入れて、ログイン、ログアウトの状態を振り分ける。 -->
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="on_login">
+            <input type="submit" value="ログインする">
+          </form>
+
+            <%else%>
+          <!-- ここまで -->
+
+          <p id="welcome_user"><a href="/mydata"><%=@login_check["name"]%></a>さんようこそ！</p>
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="off_login">
+            <input type="submit" value="ログアウト">
+          </form>
+          <a class="link_button" href="/cart"><i class="fa fa-cart-arrow-down" id="fa-cart" aria-hidden="true"></i> カート</a>
+            <%end%>
+            <a href="/" class="link_button">トップに戻る</a>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <a class="link_button adds" href="/mydata_delete_result?kw=<%=@secret%>">はい</a>
+      <a class="link_button adds" onClick="history.go(-1);">いいえ</a>
+    </div>
+    <h1>本当に削除しますか？</h1>
+    <div class="clear"></div>
+    <footer>
+      <h1>EC_site</h1>
+      <small>	&#x1F12B;garchomp</small>
+    </footer>
+  </body>
+</html>

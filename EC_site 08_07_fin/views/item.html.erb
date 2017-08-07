@@ -1,0 +1,93 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EC_site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/ec_style.css" type="text/css">
+  </head>
+  <!-- /*<style media="screen">
+    #testhoge{
+
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script text="text/javascript">
+		$(function() {
+				// replace関数による文字列の置換
+				var h1Text = $("#testhoge").text();
+				h1Text = h1Text.replace("<br>", "");
+				$("#testhoge").text(h1Text);
+      });
+		</script>*/ -->
+  <body>
+    <header>
+      <div class="container">
+        <h1>ECサイトタイトル</h1>
+        <div class="login">
+          <%if @login_check.nil?%>
+          <!--  ここに条件分岐を入れて、ログイン、ログアウトの状態を振り分ける。 -->
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="on_login">
+            <input type="submit" value="ログインする">
+          </form>
+
+            <%else%>
+          <!-- ここまで -->
+
+          <p id="welcome_user"><a href="/mydata"><%=@login_check["name"]%></a>さんようこそ！</p>
+          <form action="/login" method="post">
+            <input type="hidden" name="login" value="off_login">
+            <input type="submit" value="ログアウト">
+          </form>
+          <a class="link_button" href="/cart"><i class="fa fa-cart-arrow-down" id="fa-cart" aria-hidden="true"></i> カート</a>
+            <%end%>
+            <a href="/" class="link_button">トップに戻る</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-page">
+      <div class="container">
+        <form class="serch" action="/serch" method="post">
+          検索：<input type="text" name="serch" value="">
+          <input type="submit" name="" value="検索">
+        </form>
+
+      </div>
+    </div>
+
+    <div class="more_detail">
+      <div class="container">
+        <h1><%=@hogehoge%>hoge</h1>
+        <script src="https://s.yimg.jp/images/yjdn/js/bakusoku-jsonp-v1.js"
+        data-url="https://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemLookup"
+        data-p-appid="dj00aiZpPWYwT0lPSm1Zc0t3ZiZzPWNvbnN1bWVyc2VjcmV0Jng9OTA-"
+        data-p-itemcode=<%=@items%>
+        data-p-callback=string
+        data-p-image_size=300
+        data-p-responsegroup=large>
+        {{#ResultSet.0.Result}}
+        {{#0}}
+        <img src="{{ExImage.Url}}">
+        <li>
+        <h2 id="item_name">{{Name}}</h2>
+        <h3>{{Headline}}</h3>
+        <p id="testhoge">{{{Description}}}</p>
+        <p>価格：{{Price._value}}</p>
+        <a href="/add?kw=<%=@params["kw"]%>" id="adds" class="link_button">追加する</a></li>
+        {{/0}}
+        {{/ResultSet.0.Result}}
+        </script>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div style="margin:300px;border:1px solid white;display:inline-block;">
+
+    </div>
+    <footer>
+      <h1>EC_site</h1>
+      <small>	&#x1F12B;garchomp</small>
+    </footer>
+  </body>
+</html>
